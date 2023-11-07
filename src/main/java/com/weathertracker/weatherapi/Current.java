@@ -8,7 +8,7 @@ public class Current{
 	private Object feelslikeC;
 
 	@JsonProperty("uv")
-	private Object uv;
+	private int uv;
 
 	@JsonProperty("last_updated")
 	private String lastUpdated;
@@ -26,7 +26,7 @@ public class Current{
 	private int isDay;
 
 	@JsonProperty("precip_in")
-	private Object precipIn;
+	private int precipIn;
 
 	@JsonProperty("wind_dir")
 	private String windDir;
@@ -41,13 +41,13 @@ public class Current{
 	private Object pressureIn;
 
 	@JsonProperty("gust_kph")
-	private Object gustKph;
+	private int gustKph;
 
 	@JsonProperty("temp_f")
 	private Object tempF;
 
 	@JsonProperty("precip_mm")
-	private Object precipMm;
+	private int precipMm;
 
 	@JsonProperty("cloud")
 	private int cloud;
@@ -62,16 +62,16 @@ public class Current{
 	private Object windMph;
 
 	@JsonProperty("vis_km")
-	private Object visKm;
+	private int visKm;
 
 	@JsonProperty("humidity")
 	private int humidity;
 
 	@JsonProperty("pressure_mb")
-	private Object pressureMb;
+	private int pressureMb;
 
 	@JsonProperty("vis_miles")
-	private Object visMiles;
+	private int visMiles;
 
 	public void setFeelslikeC(Object feelslikeC){
 		this.feelslikeC = feelslikeC;
@@ -81,11 +81,11 @@ public class Current{
 		return feelslikeC;
 	}
 
-	public void setUv(Object uv){
+	public void setUv(int uv){
 		this.uv = uv;
 	}
 
-	public Object getUv(){
+	public int getUv(){
 		return uv;
 	}
 
@@ -129,11 +129,11 @@ public class Current{
 		return isDay;
 	}
 
-	public void setPrecipIn(Object precipIn){
+	public void setPrecipIn(int precipIn){
 		this.precipIn = precipIn;
 	}
 
-	public Object getPrecipIn(){
+	public int getPrecipIn(){
 		return precipIn;
 	}
 
@@ -169,11 +169,11 @@ public class Current{
 		return pressureIn;
 	}
 
-	public void setGustKph(Object gustKph){
+	public void setGustKph(int gustKph){
 		this.gustKph = gustKph;
 	}
 
-	public Object getGustKph(){
+	public int getGustKph(){
 		return gustKph;
 	}
 
@@ -185,11 +185,11 @@ public class Current{
 		return tempF;
 	}
 
-	public void setPrecipMm(Object precipMm){
+	public void setPrecipMm(int precipMm){
 		this.precipMm = precipMm;
 	}
 
-	public Object getPrecipMm(){
+	public int getPrecipMm(){
 		return precipMm;
 	}
 
@@ -225,11 +225,11 @@ public class Current{
 		return windMph;
 	}
 
-	public void setVisKm(Object visKm){
+	public void setVisKm(int visKm){
 		this.visKm = visKm;
 	}
 
-	public Object getVisKm(){
+	public int getVisKm(){
 		return visKm;
 	}
 
@@ -241,19 +241,19 @@ public class Current{
 		return humidity;
 	}
 
-	public void setPressureMb(Object pressureMb){
+	public void setPressureMb(int pressureMb){
 		this.pressureMb = pressureMb;
 	}
 
-	public Object getPressureMb(){
+	public int getPressureMb(){
 		return pressureMb;
 	}
 
-	public void setVisMiles(Object visMiles){
+	public void setVisMiles(int visMiles){
 		this.visMiles = visMiles;
 	}
 
-	public Object getVisMiles(){
+	public int getVisMiles(){
 		return visMiles;
 	}
 
