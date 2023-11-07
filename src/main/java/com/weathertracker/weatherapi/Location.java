@@ -1,4 +1,4 @@
-package com.kpg.weatherapi;
+package com.weathertracker.weatherapi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
