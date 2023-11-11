@@ -2,7 +2,7 @@ package com.weathertracker.weatherapi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Weather{
+public class Weather {
 
 	@JsonProperty("current")
 	private Current current;

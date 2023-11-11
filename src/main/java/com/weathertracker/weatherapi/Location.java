@@ -2,7 +2,7 @@ package com.weathertracker.weatherapi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Location{
+public class Location {
 
 	@JsonProperty("localtime")
 	private String localtime;

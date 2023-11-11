@@ -31,7 +31,7 @@ public class WeatherDao implements PropertiesLoader {
      */
     public WeatherDao() {
         properties = new Properties(loadProperties("/weatherapi.properties"));
-        System.out.println("hello");
+        System.out.println(properties.getProperty("api.key.name"));
 
     }
 
@@ -45,19 +45,22 @@ public class WeatherDao implements PropertiesLoader {
         String api = properties.getProperty("api.key.name");
         String apiKey = properties.getProperty("api.key");
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target("https://api.weatherapi.com/v1/forecast.json?&q=Madison");
-        String response = target.request(MediaType.APPLICATION_JSON).header(api, apiKey).get(String.class);
+        WebTarget target = client.target("https://api.weatherapi.com/v1/forecast.json?key=daea094fc2c042ec8b501117230711n&q=Madison");
+        String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
         ObjectMapper mapper = new ObjectMapper();
 
         //Forecast forecast = null;
         Location location = new Location();
 
-        System.out.println(location);
         try {
-             location = mapper.readValue(response, Location.class); pull
+             location = mapper.readValue(response, Location.class);
+
         } catch (JsonProcessingException e) {
             logger.debug(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+
         return location;
     }
-};
+}
