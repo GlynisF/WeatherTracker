@@ -53,6 +53,13 @@ public class Current{
 	@JsonProperty("weather_code")
 	private int weatherCode;
 
+	// Default constructor
+	public Current() {
+		// Initialization, if needed
+	}
+	public Current(String s, String s1, String number, String number1, String weatherIcons) {
+	}
+
 	public void setWeatherDescriptions(List<String> weatherDescriptions){
 		this.weatherDescriptions = weatherDescriptions;
 	}
