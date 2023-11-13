@@ -21,7 +21,6 @@ public class WeatherDaoTest {
             // Ensure that the response is not null
             assertNotNull(weather);
 
-            // Check some specific values (you might need to adjust them based on the actual response)
             assertEquals("City", weather.getRequest().getType());
             assertEquals("Madison, United States of America", weather.getRequest().getQuery());
             assertEquals("en", weather.getRequest().getLanguage());
@@ -34,9 +33,8 @@ public class WeatherDaoTest {
             assertEquals("-89.401", weather.getLocation().getLon());
             assertEquals("America/Chicago", weather.getLocation().getTimezoneId());
 
-            // Add more assertions for other current weather properties
         } catch (IOException e) {
-            e.printStackTrace(); // Handle the exception appropriately
+            e.printStackTrace();
         }
     }
 }
