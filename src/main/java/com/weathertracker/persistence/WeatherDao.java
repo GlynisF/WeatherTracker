@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.weathertracker.util.PropertiesLoader;
-import com.weathertracker.weatherstack.Current;
 import com.weathertracker.weatherstack.Request;
 import com.weathertracker.weatherstack.Weather;
 import org.apache.logging.log4j.LogManager;
@@ -25,7 +24,6 @@ import java.util.Properties;
 public class WeatherDao implements PropertiesLoader {
 
     private Properties properties;
-    private Request request;
     private final Logger logger = (Logger) LogManager.getLogger(this.getClass());
 
 
@@ -33,7 +31,7 @@ public class WeatherDao implements PropertiesLoader {
      * Instantiates a new Weather dao.
      */
     public WeatherDao() {
-        properties = new Properties(loadProperties("/weatherapi.properties"));
+        properties = new Properties(loadProperties("/weatherstackApi.properties"));
     }
 
     /**
@@ -59,7 +57,6 @@ public class WeatherDao implements PropertiesLoader {
             mapper.disable(DeserializationFeature
                     .FAIL_ON_UNKNOWN_PROPERTIES);
             weather = mapper.readValue(response, Weather.class);
-
 
         } catch (JsonMappingException e) {
             e.printStackTrace();
