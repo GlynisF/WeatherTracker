@@ -13,7 +13,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 
-import static com.mysql.cj.conf.PropertyKey.logger;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class WeatherDaoTest {
@@ -34,7 +34,7 @@ WeatherDao dao;
             mapper.disable(DeserializationFeature
                     .FAIL_ON_UNKNOWN_PROPERTIES);
             dao = mapper.readValue(response, WeatherDao.class);
-            assertEquals("???", dao.getResponse().getLocation());
+            assertEquals("???", dao.getResponse().getCurrent());
         } catch (JsonMappingException e) {
             e.printStackTrace();
         } catch (JsonProcessingException e) {

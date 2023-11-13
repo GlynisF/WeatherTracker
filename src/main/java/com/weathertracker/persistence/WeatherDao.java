@@ -48,10 +48,7 @@ public class WeatherDao implements PropertiesLoader {
         String response = (target.request(MediaType.APPLICATION_JSON).get(String.class));
         ObjectMapper mapper = new ObjectMapper();
 
-        //Forecast forecast = null;
-
         Weather weather= null;
-
 
         try {
             mapper.disable(DeserializationFeature
