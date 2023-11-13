@@ -1,6 +1,5 @@
 package com.weathertracker.persistence;
 
-import com.weathertracker.persistence.WeatherDao;
 import com.weathertracker.weatherstack.Weather;
 import org.junit.jupiter.api.Test;
 
