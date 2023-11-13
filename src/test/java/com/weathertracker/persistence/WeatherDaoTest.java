@@ -1,50 +1,40 @@
 package com.weathertracker.persistence;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.weathertracker.weatherstack.Current;
+import com.weathertracker.persistence.WeatherDao;
+import com.weathertracker.weatherstack.Weather;
 import org.junit.jupiter.api.Test;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-class WeatherDaoTest {
-WeatherDao dao;
+public class WeatherDaoTest {
 
     @Test
-    void getResponse() throws IOException {
-
-        Client client = ClientBuilder.newClient();
-        WebTarget target =
-
-                client.target("http://api.weatherstack.com/current?access_key=ea9292c054afbaf59487a08387645b47&query=Madison,wi&units=f");
-        String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
-        // how we specify what we want to map and to where
-        ObjectMapper mapper = new ObjectMapper();
+    void testGetResponse() {
+        WeatherDao weatherDao = new WeatherDao();
 
         try {
-            mapper.disable(DeserializationFeature
-                    .FAIL_ON_UNKNOWN_PROPERTIES);
-            dao = mapper.readValue(response, WeatherDao.class);
-            assertEquals("???", dao.getResponse().getCurrent());
-        } catch (JsonMappingException e) {
-            e.printStackTrace();
-        } catch (JsonProcessingException e) {
-           e.printStackTrace();
+            Weather weather = weatherDao.getResponse();
+
+            // Ensure that the response is not null
+            assertNotNull(weather);
+
+            assertEquals("City", weather.getRequest().getType());
+            assertEquals("Madison, United States of America", weather.getRequest().getQuery());
+            assertEquals("en", weather.getRequest().getLanguage());
+            assertEquals("f", weather.getRequest().getUnit());
+
+            assertEquals("Madison", weather.getLocation().getName());
+            assertEquals("United States of America", weather.getLocation().getCountry());
+            assertEquals("Wisconsin", weather.getLocation().getRegion());
+            assertEquals("43.073", weather.getLocation().getLat());
+            assertEquals("-89.401", weather.getLocation().getLon());
+            assertEquals("America/Chicago", weather.getLocation().getTimezoneId());
+
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
-
-
-
     }
-
-    }
+}

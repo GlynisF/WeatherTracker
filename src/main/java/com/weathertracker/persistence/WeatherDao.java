@@ -17,7 +17,6 @@ import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.util.Properties;
 
-
 /**
  * The type Weather dao.
  */
@@ -25,7 +24,6 @@ public class WeatherDao implements PropertiesLoader {
 
     private Properties properties;
     private final Logger logger = (Logger) LogManager.getLogger(this.getClass());
-
 
     /**
      * Instantiates a new Weather dao.
@@ -40,7 +38,7 @@ public class WeatherDao implements PropertiesLoader {
      * @return the response
      * @throws IOException the io exception
      */
-    Weather getResponse() throws IOException {
+    public Weather getResponse() throws IOException {
         String api = properties.getProperty("api.key.name");
         String apiKey = properties.getProperty("api.key");
         Client client = ClientBuilder.newClient();
@@ -48,13 +46,11 @@ public class WeatherDao implements PropertiesLoader {
         String response = (target.request(MediaType.APPLICATION_JSON).get(String.class));
         ObjectMapper mapper = new ObjectMapper();
 
-        Weather weather= null;
+        Weather weather = null;
 
         try {
-            mapper.disable(DeserializationFeature
-                    .FAIL_ON_UNKNOWN_PROPERTIES);
+            mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
             weather = mapper.readValue(response, Weather.class);
-
         } catch (JsonMappingException e) {
             e.printStackTrace();
         } catch (JsonProcessingException e) {
