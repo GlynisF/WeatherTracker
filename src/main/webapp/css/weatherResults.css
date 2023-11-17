@@ -1,0 +1,19 @@
+/* weatherResults.css */
+h2 {
+    color: #333;
+}
+
+#weather-data {
+    width: 60%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    margin: 10px 0;
+    color: #333;
+}
+

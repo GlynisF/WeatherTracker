@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.weathertracker.util.PropertiesLoader;
-import com.weathertracker.weatherstack.Request;
 import com.weathertracker.weatherstack.Weather;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
@@ -38,7 +37,7 @@ public class WeatherDao implements PropertiesLoader {
      * @return the response
      * @throws IOException the io exception
      */
-    public Weather getResponse() throws IOException {
+    public Weather getResponse(String city) throws IOException {
         String api = properties.getProperty("api.key.name");
         String apiKey = properties.getProperty("api.key");
         Client client = ClientBuilder.newClient();
@@ -55,10 +54,7 @@ public class WeatherDao implements PropertiesLoader {
             e.printStackTrace();
         } catch (JsonProcessingException e) {
             logger.debug(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
-
         return weather;
     }
 }

@@ -1,6 +1,5 @@
 package com.weathertracker.persistence;
 
-import com.weathertracker.persistence.WeatherDao;
 import com.weathertracker.weatherstack.Weather;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +15,8 @@ public class WeatherDaoTest {
         WeatherDao weatherDao = new WeatherDao();
 
         try {
-            Weather weather = weatherDao.getResponse();
+            String city = "London";
+            Weather weather = weatherDao.getResponse(city);
 
             // Ensure that the response is not null
             assertNotNull(weather);
