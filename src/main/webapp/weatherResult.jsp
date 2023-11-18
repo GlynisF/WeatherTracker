@@ -10,7 +10,7 @@
 <body>
 <h2>Weather in </h2>
 
-<a href="http://localhost:8080">
+<a href="index.jsp">
     <img src="/resources/images/home.png" alt="Link Image" style="width: 50px; height: 50px;">
 </a>
 
@@ -18,7 +18,7 @@
     <p>${location.name}: </p>
     <p>Temperature: ${current.temperature}°F</p>
     <p>Feels like: ${current.feelslike}°F</p>
-    <p>Description: ${current.weatherDescriptions[0]}</p>
+    <p>${current.weatherDescriptions[0]}</p>
     <p>Humidity: ${current.humidity}%</p>
     <p>Atmospheric Pressure: ${current.pressure} hPa</p>
     <p>Wind speed: ${current.windSpeed} mph</p>

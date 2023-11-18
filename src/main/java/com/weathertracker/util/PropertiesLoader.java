@@ -19,8 +19,6 @@ public interface PropertiesLoader {
             properties.load(this.getClass().getResourceAsStream(propertiesFilePath));
         } catch (IOException ioException) {
             ioException.printStackTrace();
-        } catch (Exception exception) {
-            exception.printStackTrace();
         }
         return properties;
     }

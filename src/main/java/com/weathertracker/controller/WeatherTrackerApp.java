@@ -5,6 +5,7 @@ import com.weathertracker.weatherstack.Weather;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -36,7 +37,7 @@ public class WeatherTrackerApp extends Application implements WeatherTracker {
         }
 
         VBox vbox = new VBox(weatherLabel);
-        Scene scene = new Scene(vbox, 300, 200);
+        Scene scene = new Scene(vbox, 150, 200);
         primaryStage.setScene(scene);
 
         primaryStage.show();
@@ -53,6 +54,14 @@ public class WeatherTrackerApp extends Application implements WeatherTracker {
     }
 
     private String getUserInputCityName() {
-        return "London";
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("City Input");
+        dialog.setHeaderText("Enter the city name:");
+        dialog.setContentText("City:");
+
+        // gets the response value.
+        java.util.Optional<String> result = dialog.showAndWait();
+        return result.orElse("Madison");  // it returns "Madison by default
+        // if the user forgot to type the name of city"
     }
 }
