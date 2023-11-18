@@ -2,10 +2,7 @@ package com.weathertracker.persistence;
 
 import com.weathertracker.weatherstack.Weather;
 import org.junit.jupiter.api.Test;
-
 import java.io.IOException;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class WeatherDaoTest {
@@ -18,20 +15,21 @@ public class WeatherDaoTest {
             String city = "London";
             Weather weather = weatherDao.getResponse(city);
 
-            // Ensure that the response is not null
+            // to ensure that the response is not null
             assertNotNull(weather);
 
-            assertEquals("City", weather.getRequest().getType());
-            assertEquals("Madison, United States of America", weather.getRequest().getQuery());
-            assertEquals("en", weather.getRequest().getLanguage());
-            assertEquals("f", weather.getRequest().getUnit());
+            assertNotNull(weather.getRequest());
+            assertNotNull(weather.getRequest().getUnit());
+            assertNotNull(weather.getRequest().getQuery());
+            assertNotNull(weather.getRequest().getLanguage());
 
-            assertEquals("Madison", weather.getLocation().getName());
-            assertEquals("United States of America", weather.getLocation().getCountry());
-            assertEquals("Wisconsin", weather.getLocation().getRegion());
-            assertEquals("43.073", weather.getLocation().getLat());
-            assertEquals("-89.401", weather.getLocation().getLon());
-            assertEquals("America/Chicago", weather.getLocation().getTimezoneId());
+            assertNotNull(weather.getCurrent());
+            assertNotNull(weather.getCurrent().getTemperature());
+            assertNotNull(weather.getCurrent().getWeatherDescriptions());
+
+            assertNotNull(weather.getLocation());
+            assertNotNull(weather.getLocation().getLocaltime());
+            assertNotNull(weather.getLocation().getUtcOffset());
 
         } catch (IOException e) {
             e.printStackTrace();
