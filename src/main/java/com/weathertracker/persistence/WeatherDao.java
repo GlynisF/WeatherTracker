@@ -21,7 +21,7 @@ import java.util.Properties;
  */
 public class WeatherDao implements PropertiesLoader {
 
-    private Properties properties;
+    private final Properties properties;
     private final Logger logger = (Logger) LogManager.getLogger(this.getClass());
 
     /**
@@ -34,15 +34,20 @@ public class WeatherDao implements PropertiesLoader {
     /**
      * Gets response.
      *
+     * @param city the city for which weather information is requested
      * @return the response
      * @throws IOException the io exception
      */
     public Weather getResponse(String city) throws IOException {
-        String api = properties.getProperty("api.key.name");
         String apiKey = properties.getProperty("api.key");
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target("http://api.weatherstack.com/current?access_key=ea9292c054afbaf59487a08387645b47&query=Madison&units=f");
-        String response = (target.request(MediaType.APPLICATION_JSON).get(String.class));
+        // city parameter for the API request
+        WebTarget target = client.target("http://api.weatherstack.com/current")
+                .queryParam("access_key", apiKey)
+                .queryParam("query", city)
+                .queryParam("units", "f");
+
+        String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
         ObjectMapper mapper = new ObjectMapper();
 
         Weather weather = null;
@@ -58,3 +63,4 @@ public class WeatherDao implements PropertiesLoader {
         return weather;
     }
 }
+

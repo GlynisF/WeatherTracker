@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class WeatherTrackerApp extends Application implements WeatherTracker {
 
-    private WeatherDao weatherDao;
+    private final WeatherDao weatherDao;
 
     public WeatherTrackerApp() {
         this.weatherDao = new WeatherDao();
@@ -50,10 +50,9 @@ public class WeatherTrackerApp extends Application implements WeatherTracker {
     public String formatWeatherInfo(Weather weather) {
         return "Temperature: " + weather.getCurrent().getTemperature() + "°C\n"
                 + "Description: " + weather.getCurrent().getWeatherDescriptions().get(0);
-
     }
 
     private String getUserInputCityName() {
-        return "Madison";
+        return "London";
     }
 }

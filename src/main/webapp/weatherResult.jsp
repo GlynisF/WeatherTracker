@@ -10,6 +10,10 @@
 <body>
 <h2>Weather in </h2>
 
+<a href="http://localhost:8080">
+    <img src="/resources/images/home.png" alt="Link Image" style="width: 50px; height: 50px;">
+</a>
+
 <div id="weather-data">
     <p>${location.name}: </p>
     <p>Temperature: ${current.temperature}°F</p>

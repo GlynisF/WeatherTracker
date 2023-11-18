@@ -5,10 +5,6 @@
     margin-top: 20px;
 }
 
-h2 {
-    margin-bottom: 20px;
-}
-
 form {
     text-align: center;
     margin-top: 20px;
@@ -16,6 +12,7 @@ form {
 
 label {
     font-weight: bold;
+    font-size: 35px;
 }
 
 input[type="text"] {

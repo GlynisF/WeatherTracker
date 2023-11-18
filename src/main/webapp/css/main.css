@@ -9,5 +9,10 @@ body {
     margin: 0;
     /*background-color: paleturquoise;*/
     background-image: url(/resources/images/white-blue-clouds-arrangement.jpeg);
+}
 
+h2 {
+    margin-bottom: 20px;
+    font-size: 55px;
+    color: #00131e
 }
