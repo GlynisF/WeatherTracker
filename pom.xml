@@ -149,6 +149,14 @@
       <version>2.11.0</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-controls -->
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>17.0.9</version>
+    </dependency>
+
+
   </dependencies>
 
   <build>
