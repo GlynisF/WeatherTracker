@@ -53,7 +53,9 @@ public class WeatherDao implements PropertiesLoader {
         Weather weather = null;
 
         try {
+            // handles unrecognized property exception
             mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+
             weather = mapper.readValue(response, Weather.class);
         } catch (JsonMappingException e) {
             e.printStackTrace();
@@ -63,4 +65,5 @@ public class WeatherDao implements PropertiesLoader {
         return weather;
     }
 }
+
 
