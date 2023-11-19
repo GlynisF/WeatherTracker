@@ -5,8 +5,14 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+/**
+ * The type Weather dao test.
+ */
 public class WeatherDaoTest {
 
+    /**
+     * Test get response.
+     */
     @Test
     void testGetResponse() {
         WeatherDao weatherDao = new WeatherDao();
