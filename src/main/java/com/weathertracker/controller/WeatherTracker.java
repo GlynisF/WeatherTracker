@@ -5,9 +5,23 @@ import com.weathertracker.weatherstack.Location;
 import com.weathertracker.weatherstack.Weather;
 import javafx.stage.Stage;
 
+/**
+ * The interface Weather tracker.
+ */
 public interface WeatherTracker {
+    /**
+     * Start.
+     *
+     * @param primaryStage the primary stage
+     */
     void start(Stage primaryStage);
 
+    /**
+     * Format weather info string.
+     *
+     * @param weather the weather
+     * @return the string
+     */
     default String formatWeatherInfo(Weather weather) {
         Current current = weather.getCurrent();
         Location location = weather.getLocation();
@@ -29,5 +43,3 @@ public interface WeatherTracker {
         return stringBuilder.toString();
     }
 }
-
-
