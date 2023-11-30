@@ -3,17 +3,22 @@ package com.weathertracker.controller;
 import com.weathertracker.persistence.WeatherDao;
 import com.weathertracker.weatherstack.Weather;
 import javafx.application.Application;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import javax.ws.rs.Path;
 import java.io.IOException;
+
+import static javafx.application.Application.launch;
 
 /**
  * The type Weather tracker app.
  */
+
 public class WeatherTrackerApp extends Application implements WeatherTracker {
 
     private final WeatherDao weatherDao;
@@ -29,6 +34,7 @@ public class WeatherTrackerApp extends Application implements WeatherTracker {
      * prompts user for input. user must enter a city name.
      * @param primaryStage the main stage for the application
      */
+
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("WeatherTracker App");

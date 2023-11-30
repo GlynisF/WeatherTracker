@@ -1,6 +1,9 @@
 package com.weathertracker.weatherstack;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.ws.rs.QueryParam;
 
 /**
  * The type Weather.
@@ -14,14 +17,18 @@ public class Weather {
 
 	}
 
+
 	@JsonProperty("request")
 	private Request request;
+
 
 	@JsonProperty("current")
 	private Current current;
 
+
 	@JsonProperty("location")
 	private Location location;
+
 
 
 	/**
@@ -47,6 +54,7 @@ public class Weather {
 	 *
 	 * @return the current
 	 */
+    @QueryParam("current")
 	public Current getCurrent(){
 		return current;
 	}

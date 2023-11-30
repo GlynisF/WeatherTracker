@@ -3,6 +3,8 @@ package com.weathertracker.weatherstack;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.ws.rs.QueryParam;
+
 /**
  * The type Current.
  */
@@ -17,11 +19,13 @@ public class Current{
 	@JsonProperty("wind_degree")
 	private int windDegree;
 
+
 	@JsonProperty("visibility")
 	private int visibility;
 
 	@JsonProperty("weather_icons")
 	private List<String> weatherIcons;
+
 
 	@JsonProperty("feelslike")
 	private int feelslike;
@@ -31,6 +35,7 @@ public class Current{
 
 	@JsonProperty("wind_dir")
 	private String windDir;
+
 
 	@JsonProperty("pressure")
 	private int pressure;
@@ -44,11 +49,14 @@ public class Current{
 	@JsonProperty("uv_index")
 	private int uvIndex;
 
+
 	@JsonProperty("temperature")
 	private int temperature;
 
+
 	@JsonProperty("humidity")
 	private int humidity;
+
 
 	@JsonProperty("wind_speed")
 	private int windSpeed;
@@ -373,8 +381,7 @@ public class Current{
 			",wind_degree = '" + windDegree + '\'' + 
 			",visibility = '" + visibility + '\'' + 
 			",weather_icons = '" + weatherIcons + '\'' + 
-			",feelslike = '" + feelslike + '\'' + 
-			",is_day = '" + isDay + '\'' + 
+			",feelslike = '" + feelslike + '\'' +
 			",wind_dir = '" + windDir + '\'' + 
 			",pressure = '" + pressure + '\'' + 
 			",cloudcover = '" + cloudcover + '\'' + 
@@ -382,8 +389,7 @@ public class Current{
 			",uv_index = '" + uvIndex + '\'' + 
 			",temperature = '" + temperature + '\'' + 
 			",humidity = '" + humidity + '\'' + 
-			",wind_speed = '" + windSpeed + '\'' + 
-			",weather_code = '" + weatherCode + '\'' + 
+			",wind_speed = '" + windSpeed + '\'' +
 			"}";
 		}
 }

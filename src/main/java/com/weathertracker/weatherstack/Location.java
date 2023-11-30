@@ -2,10 +2,13 @@ package com.weathertracker.weatherstack;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
+
 /**
  * The type Location.
  */
 public class Location{
+
 
 	@JsonProperty("localtime")
 	private String localtime;
@@ -13,11 +16,13 @@ public class Location{
 	@JsonProperty("utc_offset")
 	private String utcOffset;
 
+
 	@JsonProperty("country")
 	private String country;
 
 	@JsonProperty("localtime_epoch")
 	private int localtimeEpoch;
+
 
 	@JsonProperty("name")
 	private String name;
@@ -27,6 +32,7 @@ public class Location{
 
 	@JsonProperty("lon")
 	private String lon;
+
 
 	@JsonProperty("region")
 	private String region;
@@ -205,10 +211,8 @@ public class Location{
 			",country = '" + country + '\'' + 
 			",localtime_epoch = '" + localtimeEpoch + '\'' + 
 			",name = '" + name + '\'' + 
-			",timezone_id = '" + timezoneId + '\'' + 
-			",lon = '" + lon + '\'' + 
-			",region = '" + region + '\'' + 
-			",lat = '" + lat + '\'' + 
+			",timezone_id = '" + timezoneId + '\'' +
+			",region = '" + region + '\'' +
 			"}";
 		}
 }

@@ -1,3 +1,22 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    background-color: paleturquoise;
+    background-image: url(../images/white-blue-clouds-arrangement.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 55px;
+    color: #00131e
+}
 /* main.css*/
 @media screen and (max-width: 600px) {
     body {
@@ -11,24 +30,4 @@
     input {
         font-size: 1.5em;
     }
-}
-
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-    margin: 0;
-    /*background-color: paleturquoise;*/
-    background-image: url(/resources/images/white-blue-clouds-arrangement.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-
-h2 {
-    margin-bottom: 20px;
-    font-size: 55px;
-    color: #00131e
 }
