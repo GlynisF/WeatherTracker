@@ -1,10 +1,12 @@
 package com.weathertracker.persistence;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.weathertracker.util.PropertiesLoader;
+import com.weathertracker.weatherstack.Location;
 import com.weathertracker.weatherstack.Weather;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
@@ -14,6 +16,7 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -30,6 +33,7 @@ public class WeatherDao implements PropertiesLoader {
     public WeatherDao() {
         properties = new Properties(loadProperties("/weatherstackApi.properties"));
     }
+
 
     /**
      * Gets response.
@@ -64,6 +68,6 @@ public class WeatherDao implements PropertiesLoader {
         }
         return weather;
     }
+
+
 }
-
-

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/weather")
+@WebServlet("/weather-form")
 public class WeatherTrackerServlet extends HttpServlet implements WeatherTracker {
 
     private WeatherDao weatherDao;
