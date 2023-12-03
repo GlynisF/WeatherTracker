@@ -3,21 +3,37 @@ package com.weathertracker.controller;
 import com.weathertracker.persistence.WeatherDao;
 import com.weathertracker.weatherstack.Weather;
 import javafx.application.Application;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import javax.ws.rs.Path;
 import java.io.IOException;
+
+import static javafx.application.Application.launch;
+
+/**
+ * The type Weather tracker app.
+ */
 
 public class WeatherTrackerApp extends Application implements WeatherTracker {
 
     private final WeatherDao weatherDao;
 
+    /**
+     * Instantiates a new Weather tracker app.
+     */
     public WeatherTrackerApp() {
         this.weatherDao = new WeatherDao();
     }
+
+    /**
+     * prompts user for input. user must enter a city name.
+     * @param primaryStage the main stage for the application
+     */
 
     @Override
     public void start(Stage primaryStage) {
@@ -43,16 +59,28 @@ public class WeatherTrackerApp extends Application implements WeatherTracker {
         primaryStage.show();
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }
 
+    /**
+    * format output for weather info details
+     * @param weather the Weather object type
+    */
     @Override
     public String formatWeatherInfo(Weather weather) {
         return "Temperature: " + weather.getCurrent().getTemperature() + "°C\n"
                 + "Description: " + weather.getCurrent().getWeatherDescriptions().get(0);
     }
-
+    /**
+     * sets details for the city name
+     * @return the name of the city
+     */
     private String getUserInputCityName() {
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("City Input");

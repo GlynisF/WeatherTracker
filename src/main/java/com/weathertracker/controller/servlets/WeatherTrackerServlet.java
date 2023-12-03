@@ -17,6 +17,7 @@ import java.io.IOException;
 @WebServlet("/weather")
 public class WeatherTrackerServlet extends HttpServlet {
 
+
     private final org.apache.logging.log4j.core.Logger logger = (Logger) LogManager.getLogger(this.getClass());
     private WeatherDao weatherDao;
 
@@ -84,7 +85,6 @@ public class WeatherTrackerServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
